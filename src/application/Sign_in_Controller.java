@@ -25,8 +25,7 @@ public class Sign_in_Controller {
 	private TextField login;
 	@FXML
 	private PasswordField passwd;
-	
-	Dentiste login_info;
+	private static Dentiste dentiste;
 	//protected File admin_file = new File(".\\admin");
 	
 	@FXML
@@ -47,12 +46,16 @@ public class Sign_in_Controller {
 	        }
 		});
 		thread.start();
-	}
+	} 
 	
 	public void Dentiste(ActionEvent event) {
         if(!button_dentiste.isSelected()){
         	button_dentiste.setSelected(true);
         }
+	}
+	
+	public static String getDentisteName() {
+		return dentiste.getName();
 	}
 	
 	public void Assistant(ActionEvent event) {
@@ -79,7 +82,7 @@ public class Sign_in_Controller {
 					FileInputStream fis = new FileInputStream("admin");
 					while (fis.available() > 0) {
 						ObjectInputStream ois = new ObjectInputStream(fis);
-						Dentiste dentiste = (Dentiste) ois.readObject();
+						dentiste = (Dentiste) ois.readObject();
 						if (dentiste.getLogin().equals(login.getText()) && dentiste.getPasswd().equals(passwd.getText())) {
 							main.changeScene("HomeDentiste.fxml");
 							break;

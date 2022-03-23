@@ -78,7 +78,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="430.0" text="D. OUAZIZI AYOUB" textAlignment="CENTER">
+                        <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="430.0" text="D. OUAZIZI AYOUB" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

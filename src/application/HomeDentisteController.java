@@ -1,5 +1,5 @@
 package application;
 
-public class HomeDentisteController extends Menu{
+public class HomeDentisteController extends MenuDentiste{
 	
 }
