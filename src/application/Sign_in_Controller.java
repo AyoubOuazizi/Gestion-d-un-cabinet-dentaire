@@ -26,7 +26,7 @@ public class Sign_in_Controller {
 	@FXML
 	private PasswordField passwd;
 	private static Dentiste dentiste;
-	//protected File admin_file = new File(".\\admin");
+	public static boolean isD = false;
 	
 	@FXML
 	private void initialize() {
@@ -54,7 +54,7 @@ public class Sign_in_Controller {
         }
 	}
 	
-	public static String getDentisteName() {
+	public String getDentisteName(){
 		return dentiste.getName();
 	}
 	
@@ -84,6 +84,7 @@ public class Sign_in_Controller {
 						ObjectInputStream ois = new ObjectInputStream(fis);
 						dentiste = (Dentiste) ois.readObject();
 						if (dentiste.getLogin().equals(login.getText()) && dentiste.getPasswd().equals(passwd.getText())) {
+							isD = true;
 							main.changeScene("HomeDentiste.fxml");
 							break;
 						}

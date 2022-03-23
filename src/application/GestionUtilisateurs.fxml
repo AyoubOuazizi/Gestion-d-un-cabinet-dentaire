@@ -135,5 +135,18 @@
             </Circle>
          </children>
       </GridPane>
+      <GridPane GridPane.columnIndex="1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="0.0" prefWidth="34.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1350.0" minWidth="10.0" prefWidth="1350.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="0.0" prefWidth="30.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="265.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="878.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="959.0" minHeight="10.0" prefHeight="950.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
    </children>
 </GridPane>

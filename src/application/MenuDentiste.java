@@ -59,7 +59,10 @@ public class MenuDentiste {
 		}
 		
 		// Afficher le nom du dentiste
-		name.setText("D. "+Sign_in_Controller.getDentisteName().toUpperCase());
+		if (Sign_in_Controller.isD) {
+			Sign_in_Controller m = new Sign_in_Controller();
+			name.setText("D. "+m.getDentisteName().toUpperCase());
+		}
 	}
 	
 	public void SeDeconnecter(ActionEvent event) throws IOException {
