@@ -60,7 +60,7 @@
                         <Font size="17.0" />
                      </font>
                   </PasswordField>
-                  <PasswordField promptText="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <PasswordField fx:id="passwd2" promptText="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -70,6 +70,11 @@
                         <Font size="17.0" />
                      </font>
                   </TextField>
+                  <Label fx:id="error" alignment="CENTER" prefHeight="37.0" prefWidth="384.0" text="Login_msg" textFill="#f22b2b" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </center>
