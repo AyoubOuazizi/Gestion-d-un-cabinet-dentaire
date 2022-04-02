@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 //import javafx.scene.layout.BorderPane;
+//hello
 
 public class Main extends Application {
 	private static Stage stg;
@@ -18,7 +19,7 @@ public class Main extends Application {
 			stg = primaryStage;
 			Parent root = FXMLLoader.load(getClass().getResource("Sign_in.fxml"));
 			Scene scene = new Scene(root,400,400);
-			primaryStage.setTitle("Gestion d’un cabinet dentaire");
+			primaryStage.setTitle("Gestion dï¿½un cabinet dentaire");
 			//primaryStage.setFullScreen(true);
 			primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toURI().toString()));
 			primaryStage.setMaximized(true);
