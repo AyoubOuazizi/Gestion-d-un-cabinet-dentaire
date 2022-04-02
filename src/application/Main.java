@@ -16,6 +16,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			stg = primaryStage;
+			//test
 			Parent root = FXMLLoader.load(getClass().getResource("Sign_in.fxml"));
 			Scene scene = new Scene(root,400,400);
 			primaryStage.setTitle("Gestion d’un cabinet dentaire");
