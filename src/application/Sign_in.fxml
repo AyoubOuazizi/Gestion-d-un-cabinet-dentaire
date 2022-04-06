@@ -61,6 +61,11 @@
                         <Font size="17.0" />
                      </font>
                   </PasswordField>
+                  <Label fx:id="loginMsg" alignment="BOTTOM_CENTER" prefHeight="85.0" prefWidth="384.0" textAlignment="CENTER" textFill="#bfbf5b" wrapText="true" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </center>

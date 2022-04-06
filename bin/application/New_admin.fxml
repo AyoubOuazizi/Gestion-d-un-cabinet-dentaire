@@ -18,9 +18,9 @@
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="558.0" minWidth="10.0" percentWidth="37.5" prefWidth="541.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="224.0" minHeight="10.0" percentHeight="30.0" prefHeight="224.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="417.0" minHeight="10.0" percentHeight="50.0" prefHeight="298.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="251.0" minHeight="10.0" percentHeight="25.0" prefHeight="246.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="224.0" minHeight="10.0" percentHeight="21.0" prefHeight="224.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="417.0" minHeight="10.0" percentHeight="67.0" prefHeight="298.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="251.0" minHeight="10.0" percentHeight="17.0" prefHeight="246.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="back_login" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -43,6 +43,8 @@
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="181.0" minHeight="10.0" percentHeight="20.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="181.0" minHeight="10.0" percentHeight="20.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="181.0" minHeight="10.0" percentHeight="20.0" prefHeight="66.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="140.0" minHeight="10.0" percentHeight="20.0" prefHeight="134.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="140.0" minHeight="10.0" percentHeight="20.0" prefHeight="134.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="207.0" minHeight="0.0" percentHeight="20.0" prefHeight="77.0" vgrow="SOMETIMES" />
@@ -50,31 +52,41 @@
                   <RowConstraints maxHeight="277.0" minHeight="10.0" percentHeight="20.0" prefHeight="34.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="login" prefWidth="384.0" promptText="New Login" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="error" alignment="CENTER" prefHeight="37.0" prefWidth="384.0" textFill="#f22b2b" GridPane.columnIndex="1">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
-                  </TextField>
-                  <PasswordField fx:id="passwd" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </PasswordField>
-                  <PasswordField fx:id="passwd2" promptText="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </PasswordField>
+                  </Label>
                   <TextField fx:id="name" prefWidth="384.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="error" alignment="CENTER" prefHeight="37.0" prefWidth="384.0" text="Login_msg" textFill="#f22b2b" GridPane.columnIndex="1">
+                  <TextField fx:id="cin" prefWidth="384.0" promptText="CIN" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font size="17.0" />
                      </font>
-                  </Label>
+                  </TextField>
+                  <TextField fx:id="tel" prefWidth="384.0" promptText="Tel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="login" prefWidth="384.0" promptText="New Login" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="passwd" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </PasswordField>
+                  <PasswordField fx:id="passwd2" promptText="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </PasswordField>
                </children>
             </GridPane>
          </center>

@@ -1,15 +1,42 @@
 package application;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 abstract class User implements Serializable{
 	private String Login;
 	private String Passwd;
 	private String name;
-	public User(String Login,String Passwd,String name) {
+	private String CIN;
+	private String Tel;
+	private String dateCreation;
+	
+	public User(String Login,String Passwd,String name, String cin, String tel) {
 		setLogin(Login);
 		setPasswd(Passwd);
 		setName(name);
+		String date = LocalDate.now().toString();
+		setDateCreation(date);
+		setCIN(cin);
+		setTel(tel);
+	}
+	public String getCIN() {
+		return CIN;
+	}
+	public void setCIN(String cIN) {
+		CIN = cIN;
+	}
+	public String getTel() {
+		return Tel;
+	}
+	public void setTel(String tel) {
+		Tel = tel;
+	}
+	public String getDateCreation() {
+		return dateCreation;
+	}
+	public void setDateCreation(String dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	public String getLogin() {
 		return Login;

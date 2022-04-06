@@ -33,7 +33,7 @@ public class MenuDentiste {
 	private Label name;
 
 	@FXML
-	private void initialize() {
+	protected void initialize() {
 		// Afficher et mettre à jour la date
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		Thread thread = new Thread(() -> {
@@ -59,9 +59,13 @@ public class MenuDentiste {
 		}
 		
 		// Afficher le nom du dentiste
+		Sign_in_Controller m = new Sign_in_Controller();
 		if (Sign_in_Controller.isD) {
-			Sign_in_Controller m = new Sign_in_Controller();
-			name.setText("D. "+m.getDentisteName().toUpperCase());
+			name.setText("D. "+m.getUserName().toUpperCase());
+		}
+		
+		if(!m.isAdmin()) {
+			users_button.setText("Informations personnelles");
 		}
 	}
 	
@@ -86,7 +90,7 @@ public class MenuDentiste {
         }
         else {
         	Main main = new Main();
-    		main.changeScene("GestionUtilisateurs.fxml");
+    		main.changeScene("GestionUtilisateurs_1.fxml");
         }
 	}
 	

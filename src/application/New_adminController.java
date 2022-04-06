@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Label;
@@ -24,6 +25,10 @@ public class New_adminController {
 	private PasswordField passwd2;
 	@FXML
 	private TextField name;
+	@FXML
+	private TextField cin;
+	@FXML
+	private TextField tel;
 	@FXML
 	private Label error;
 	
@@ -47,17 +52,17 @@ public class New_adminController {
 		thread.start();
 	}
 	
-	public void newAdmin() throws IOException {
-		if (!passwd.equals(passwd2)) {
-			error.setText("Veuillez confirmer votre password");
-		}
-		else if (name.equals(null) || login.equals(null) || passwd.equals(null) || passwd2.equals(null)) {
+	public void newAdmin(ActionEvent event) throws IOException {
+		if (name.getText().isBlank() || login.getText().isBlank() || passwd.getText().isBlank() || passwd2.getText().isBlank() || cin.getText().isBlank() || tel.getText().isBlank()) {
 			error.setText("Tous les champs sont obligatoires");
 		}
+		else if (!passwd.getText().equals(passwd2.getText())) {
+			error.setText("Veuillez confirmer votre password");
+		}
 		else {
-			try (FileOutputStream fos = new FileOutputStream("admin",true);
+			try (FileOutputStream fos = new FileOutputStream("dentistes",true);
 				 ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-				    Dentiste dentiste = new Dentiste(login.getText(),passwd.getText(),name.getText());
+				    Dentiste dentiste = new Dentiste(login.getText(),passwd.getText(),name.getText(),cin.getText(),tel.getText(),true);
 				    oos.writeObject(dentiste);
 				} catch (IOException ex) {
 				    ex.printStackTrace();

@@ -107,7 +107,7 @@
             </Circle>
          </children>
       </GridPane>
-      <TableView prefHeight="200.0" prefWidth="200.0" styleClass="tableAssistant" stylesheets="@application.css" GridPane.columnIndex="1">
+      <TableView prefHeight="200.0" prefWidth="200.0" styleClass="table" stylesheets="@application.css" GridPane.columnIndex="1">
         <columns>
           <TableColumn prefWidth="230.0" text="ID" />
           <TableColumn minWidth="0.0" prefWidth="172.0" text="Nom" />
