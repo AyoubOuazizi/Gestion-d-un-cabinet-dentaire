@@ -9,6 +9,11 @@ public class Patient {
 	private String Nom;
 	private String Prenom;
 	private char Sexe;
+	
+	/*public Patient(int ID, Date DateNaissance, String cin, String nom, String prenom, char sexe) {
+		set
+	}*/
+	
 	public int getIDPatient() {
 		return IDPatient;
 	}

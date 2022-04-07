@@ -64,7 +64,7 @@ public class MenuDentiste {
 			name.setText("D. "+m.getUserName().toUpperCase());
 		}
 		
-		if(!m.isAdmin()) {
+		if(!m.isAdmin() && m.isD) {
 			users_button.setText("Informations personnelles");
 		}
 	}
