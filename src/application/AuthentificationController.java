@@ -20,6 +20,7 @@ public class AuthentificationController {
 	private PasswordField passwd;
 	private GestionUtilisateursController_2 g = new GestionUtilisateursController_2();
 	private GestionUtilisateursController_3 n = new GestionUtilisateursController_3();
+	private GestionActesMedicauxController r = new GestionActesMedicauxController();
 	private static boolean passValide;
 	
 	public boolean passValide() {
@@ -39,6 +40,12 @@ public class AuthentificationController {
 				passValide = true;
 				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				stage.close();
+			} else if (r.isModif()) {
+				Parent pane = FXMLLoader.load(getClass().getResource("EditActeMed.fxml"));
+				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				stage.getScene().setRoot(pane);
+				stage.sizeToScene();
+				stage.centerOnScreen();
 			}
 			else {
 				Parent pane = FXMLLoader.load(getClass().getResource("EditUser.fxml"));

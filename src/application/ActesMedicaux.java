@@ -8,7 +8,7 @@ public class ActesMedicaux {
 	private Date DebutSoin;
 	private float PrixComtabilise;
 	private Date FinSoin;
-    private boolean EtatActe;
+    private boolean EtatActe = true;
 	
 	public void setIDSoin(int IDSoin) {
 		this.IDSoin = IDSoin;
