@@ -11,7 +11,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/javafx-sdk-17.0.1/lib/javafx.fxml.jar" rootpath="." sourcepath="E:/javafx-sdk-17.0.1/lib/src.zip">
+	<classpathentry kind="lib" path="E:/javafx-sdk-17.0.1/lib/javafx.fxml.jar" sourcepath="E:/javafx-sdk-17.0.1/lib/src.zip">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -20,6 +20,11 @@
 			<accessrule kind="discouraged" pattern="com/sun/*"/>
 			<accessrule kind="discouraged" pattern="netscape/javascript/*"/>
 		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/hp/eclipse-workspace/cabinet_dentaire/mysql-connector-java-8.0.27.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

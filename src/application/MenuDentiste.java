@@ -26,10 +26,6 @@ public class MenuDentiste {
 	@FXML
 	private ToggleButton patients_button;
 	@FXML
-	private ToggleButton radios_button;
-	@FXML
-	private ToggleButton actes_button;
-	@FXML
 	private Label name;
 
 	@FXML
@@ -94,21 +90,14 @@ public class MenuDentiste {
         }
 	}
 	
-	public void patients(ActionEvent event) {
+	public void patients(ActionEvent event) throws IOException {
         if(!patients_button.isSelected()){
         	patients_button.setSelected(true);
         }
-	}
-	
-	public void radios(ActionEvent event) {
-        if(!radios_button.isSelected()){
-        	radios_button.setSelected(true);
+        else {
+        	Main main = new Main();
+    		main.changeScene("GestionPatients.fxml");
         }
 	}
 	
-	public void actes(ActionEvent event) {
-        if(!actes_button.isSelected()){
-        	actes_button.setSelected(true);
-        }
-	}
 }

@@ -18,11 +18,12 @@ public class AuthentificationController {
 	private Label msg;
 	@FXML
 	private PasswordField passwd;
-	private GestionUtilisateursController_2 g = new GestionUtilisateursController_2();
-	private GestionUtilisateursController_3 n = new GestionUtilisateursController_3();
-	private GestionActesMedicauxController r = new GestionActesMedicauxController();
+	public static boolean isDel;
+	//private GestionUtilisateursController_2 g = new GestionUtilisateursController_2();
+	//private GestionUtilisateursController_3 n = new GestionUtilisateursController_3();
+	//private GestionPatientsController a = new GestionPatientsController();
 	private static boolean passValide;
-	
+	public static String src;
 	public boolean passValide() {
 		return passValide;
 	}
@@ -36,19 +37,14 @@ public class AuthentificationController {
 	public void confirm(ActionEvent event) throws IOException {
 		Sign_in_Controller m = new Sign_in_Controller();
 		if (passwd.getText().equals(m.getUserPass())) {
-			if (g.isDel() || n.isDel()) {
+			//if (g.isDel() || n.isDel() || a.isDel()) {
+			if (isDel) {
 				passValide = true;
 				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				stage.close();
-			} else if (r.isModif()) {
-				Parent pane = FXMLLoader.load(getClass().getResource("EditActeMed.fxml"));
-				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				stage.getScene().setRoot(pane);
-				stage.sizeToScene();
-				stage.centerOnScreen();
 			}
 			else {
-				Parent pane = FXMLLoader.load(getClass().getResource("EditUser.fxml"));
+				Parent pane = FXMLLoader.load(getClass().getResource(src));
 				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				stage.getScene().setRoot(pane);
 				stage.sizeToScene();

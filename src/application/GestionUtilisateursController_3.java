@@ -220,7 +220,7 @@ public class GestionUtilisateursController_3 extends GestionUtilisateurs{
 	public void delete(ActionEvent event) throws IOException {
 		Assistant assistantSelected = assistantsData.getSelectionModel().getSelectedItem();
 		if (assistantSelected != null) {			
-			deleteSel = true;
+			AuthentificationController.isDel = true;
 			
 			Stage popupwindow=new Stage();	
 			popupwindow.setResizable(false);
@@ -293,8 +293,9 @@ public class GestionUtilisateursController_3 extends GestionUtilisateurs{
 	public void edit(ActionEvent event) throws IOException {
 		assistantSel = assistantsData.getSelectionModel().getSelectedItem();
 		if (assistantSel != null) {			
-			deleteSel = false;
+			AuthentificationController.isDel = false;
 			estAssist = true;
+			AuthentificationController.src = "EditUser.fxml";
 			Stage popupwindow=new Stage();	
 			popupwindow.setResizable(false);
 			popupwindow.initModality(Modality.APPLICATION_MODAL);

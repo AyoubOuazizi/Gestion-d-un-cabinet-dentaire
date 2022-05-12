@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeDentisteController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeAssistantController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1508.0" minWidth="10.0" percentWidth="25.0" prefWidth="616.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1509.0" minWidth="10.0" percentWidth="75.0" prefWidth="1304.0" />
@@ -78,7 +78,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="430.0" text="OUAZIZI AYOUB" textAlignment="CENTER">
+                        <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="430.0" text="OUAZIZI AYOUB" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -93,7 +93,12 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#SeDeconnecter" prefHeight="93.0" prefWidth="423.0" text="Se déconnecter" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#SeDeconnecter" prefHeight="93.0" prefWidth="423.0" text="Se déconnecter" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#add" prefHeight="93.0" prefWidth="423.0" text="Ajouter" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -107,15 +112,16 @@
             </Circle>
          </children>
       </GridPane>
-      <TableView prefHeight="200.0" prefWidth="200.0" styleClass="table" stylesheets="@application.css" GridPane.columnIndex="1">
+      <TableView fx:id="patientsData" prefHeight="200.0" prefWidth="200.0" styleClass="table" stylesheets="@application.css" GridPane.columnIndex="1">
         <columns>
-          <TableColumn prefWidth="230.0" text="ID" />
-          <TableColumn minWidth="0.0" prefWidth="172.0" text="Nom" />
-            <TableColumn prefWidth="75.0" text="Prénom" />
-            <TableColumn prefWidth="75.0" text="CIN" />
-            <TableColumn prefWidth="75.0" text="Sexe" />
-            <TableColumn prefWidth="117.0" text="Date de naissance" />
-            <TableColumn prefWidth="75.0" text="Rendez-vous" />
+          <TableColumn fx:id="patientID" prefWidth="230.0" text="ID" />
+          <TableColumn fx:id="patientNom" minWidth="0.0" prefWidth="172.0" text="Nom" />
+            <TableColumn fx:id="patientPrenom" prefWidth="75.0" text="Prénom" />
+            <TableColumn fx:id="patientCIN" prefWidth="75.0" text="CIN" />
+            <TableColumn fx:id="patientSexe" prefWidth="75.0" text="Sexe" />
+            <TableColumn fx:id="patientNaiss" prefWidth="117.0" text="Date de naissance" />
+            <TableColumn fx:id="patientTel" prefWidth="75.0" text="Tel" />
+            <TableColumn fx:id="PatientNextInterv" prefWidth="75.0" text="Next Intervention" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

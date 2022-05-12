@@ -60,6 +60,7 @@ public class GestionUtilisateursController_2 extends GestionUtilisateurs{
 	private Label addMsg;
 	private static Dentiste dentisteSel;
 	private static boolean deleteSel;
+	
 	@FXML
 	protected void initialize() {
 		super.initialize();
@@ -211,7 +212,7 @@ public class GestionUtilisateursController_2 extends GestionUtilisateurs{
 				alert.show();
 			}
 			else {
-				deleteSel = true;
+				AuthentificationController.isDel = true;
 				
 				Stage popupwindow=new Stage();	
 				popupwindow.setResizable(false);
@@ -291,9 +292,10 @@ public class GestionUtilisateursController_2 extends GestionUtilisateurs{
 				main.changeScene("GestionUtilisateurs_1.fxml");
 			}
 			else {
-				deleteSel = false;
+				AuthentificationController.isDel = false;
 				GestionUtilisateursController_3 a = new GestionUtilisateursController_3();
 				a.estAsst(false);
+				AuthentificationController.src = "EditUser.fxml";
 				Stage popupwindow=new Stage();	
 				popupwindow.setResizable(false);
 				popupwindow.initModality(Modality.APPLICATION_MODAL);
@@ -312,53 +314,12 @@ public class GestionUtilisateursController_2 extends GestionUtilisateurs{
 				}
 			}
 
-			/*TextField marqueData = (TextField) popup.lookup("#marque");
-			TextField modeleData = (TextField) popup.lookup("#modèle");
-			TextField couleurData = (TextField) popup.lookup("#couleur");
-			TextField prixData = (TextField) popup.lookup("#prix");
-			@SuppressWarnings("unchecked")
-			ComboBox<String> dispo = (ComboBox<String>) popup.lookup("#disponibilité");
-			@SuppressWarnings("unchecked")
-			ComboBox<String> carb = (ComboBox<String>) popup.lookup("#carburant");
-			marqueData.setText(car.getCarMarque());
-			modeleData.setText(car.getCarModele());
-			couleurData.setText(car.getCarColor());
-			prixData.setText(car.getCarPrice().toString());
-			dispo.setValue(car.getCarDispo());
-			carb.setValue(car.getCarCarburant());
-			Main.ID_edited = car.getCarID();*/
-			
-			/*while (true) {
-				if (!popupwindow.isShowing()) {
-					car_table.getItems().clear();
-					voitures.clear();
-					String host = "jdbc:mysql://localhost:3306/projet";
-					String username = "root";
-					String password= "ayoub2001";
-					Connection con = DriverManager.getConnection( host, username, password);
-					Statement mystmt=con.createStatement();
-					String query1 = "SELECT * FROM voitures";
-			    	ResultSet voitures_results = mystmt.executeQuery(query1);
-			    	while (voitures_results.next()) {
-			    		voitures.add(new Car(voitures_results.getInt("ID_Voitures"),
-			    							 voitures_results.getString("Marque"),
-			    							 voitures_results.getString("Modèle"),
-			    							 voitures_results.getString("Couleur"),
-			    							 voitures_results.getString("Carburant"),
-			    							 voitures_results.getInt("Prix"),
-			    							 voitures_results.getString("Disponibilité")));
-			    	}
-			    	car_table.setItems(voitures);
-			    	con.close();
-					break;
-				}
-			}*/
 		}
 		else {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setHeaderText(null);
 			alert.setTitle("Erreur");
-			alert.setContentText("sélectionner le dentiste à supprimer");
+			alert.setContentText("sélectionner le dentiste à modifier");
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			alert.initOwner(stage);
 			alert.show();

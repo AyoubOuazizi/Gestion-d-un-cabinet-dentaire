@@ -1,6 +1,12 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.ListIterator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +51,42 @@ public class GestionUtilisateursController_1 extends GestionUtilisateurs{
 	    	confirm.show();
 		}
 		else {
-			msg.setText("Tous les champs sont obligatoires");
+			try {
+				FileInputStream fis = new FileInputStream("dentistes");
+				ArrayList<Dentiste> dentisteListe = new ArrayList<>();
+				while (fis.available() > 0) {
+					ObjectInputStream ois = new ObjectInputStream(fis);
+					Dentiste dent = (Dentiste) ois.readObject();
+					if (!m.getUserLogin().equals(dent.getLogin()))
+						dentisteListe.add(dent);
+					else {
+						dentisteListe.add(new Dentiste(login.getText(),dent.getPasswd(),nom.getText(),dent.getCIN(),dent.getTel(),dent.isAdmin()));
+					}
+				}
+				fis.close();
+				
+				new FileOutputStream("dentistes").close();
+				
+				ListIterator<Dentiste> iterator = dentisteListe.listIterator();
+				FileOutputStream fos = new FileOutputStream("dentistes", true);
+				while (iterator.hasNext()) {
+				    ObjectOutputStream oos = new ObjectOutputStream(fos);   
+				    oos.writeObject(iterator.next());
+				} 
+				fos.close();
+				
+			    
+				Alert confirm = new Alert(Alert.AlertType.INFORMATION);
+		    	confirm.setHeaderText(null);
+		    	confirm.setTitle("Confirmation");
+		    	confirm.setContentText("Les informations ont été modifiées avec succès");
+		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    	confirm.initOwner(stage);
+		    	confirm.show();
+		    	
+			} catch (IOException | ClassNotFoundException ex) {
+				ex.printStackTrace();
+			}
 		}
 	}
 }

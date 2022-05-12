@@ -3,6 +3,7 @@ package application;
 public class CouvertureMedicale {
 	private int IDCouverture;
 	private String TypeCouverture;
+
 	public void setIDCouverture(int IDCouverture) {
 		this.IDCouverture = IDCouverture;
 	}

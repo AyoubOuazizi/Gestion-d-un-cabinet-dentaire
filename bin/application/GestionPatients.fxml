@@ -2,8 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -116,17 +119,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </ToggleButton>
-                  <ToggleButton fx:id="patients_button" mnemonicParsing="false" onAction="#patients" prefHeight="106.0" prefWidth="423.0" text="Gérer les patients" toggleGroup="$Gr" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </ToggleButton>
-                  <ToggleButton fx:id="radios_button" mnemonicParsing="false" onAction="#radios" prefHeight="106.0" prefWidth="423.0" text="Gérer les radios" toggleGroup="$Gr" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </ToggleButton>
-                  <ToggleButton fx:id="actes_button" mnemonicParsing="false" onAction="#actes" prefHeight="106.0" prefWidth="423.0" text="Gérer les actes médicaux" toggleGroup="$Gr" GridPane.rowIndex="6">
+                  <ToggleButton fx:id="patients_button" mnemonicParsing="false" onAction="#patients" prefHeight="106.0" prefWidth="423.0" selected="true" text="Gérer les patients" toggleGroup="$Gr" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -141,44 +134,12 @@
          </children>
       </GridPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-         <top>
-            <GridPane prefHeight="50.0" prefWidth="1442.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ToggleButton fx:id="info" mnemonicParsing="false" onAction="#infoPerso" prefHeight="99.0" prefWidth="575.0" text="Informations personnelles">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="Gr1" />
-                     </toggleGroup>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </ToggleButton>
-                  <ToggleButton fx:id="dentistes" mnemonicParsing="false" onAction="#dentistes_butt" prefHeight="99.0" prefWidth="575.0" selected="true" text="Gestion des dentistes" toggleGroup="$Gr1" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </ToggleButton>
-                  <ToggleButton fx:id="assistants" mnemonicParsing="false" onAction="#assistantsButt" prefHeight="99.0" prefWidth="575.0" selected="true" text="Gestion des assistants" toggleGroup="$Gr1" GridPane.columnIndex="2">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </ToggleButton>
-               </children>
-            </GridPane>
-         </top>
          <center>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="1041.0" minWidth="30.0" prefWidth="81.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1201.0" minWidth="10.0" prefWidth="945.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="640.0" minWidth="10.0" prefWidth="418.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1315.0" minWidth="10.0" prefWidth="1315.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1041.0" minWidth="30.0" prefWidth="81.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="379.0" minHeight="30.0" prefHeight="48.0" vgrow="SOMETIMES" />
@@ -188,13 +149,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="assistantsData" prefHeight="200.0" prefWidth="200.0" styleClass="table" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <TableView fx:id="patientsData" onMouseClicked="#info" onMousePressed="#info" prefHeight="200.0" prefWidth="200.0" styleClass="table" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <columns>
-                        <TableColumn fx:id="assistantID" prefWidth="73.0" text="ID" />
-                      <TableColumn fx:id="assistantNom" prefWidth="287.0" text="Nom" />
-                        <TableColumn fx:id="assistantCIN" minWidth="0.0" prefWidth="139.0" text="CIN" />
-                        <TableColumn fx:id="assistantTel" minWidth="0.0" prefWidth="238.0" text="Tel" />
-                      <TableColumn fx:id="assistantDate" minWidth="0.0" prefWidth="191.0" text="Date_de_création" />
+                        <TableColumn fx:id="patientID" prefWidth="73.0" text="ID" />
+                      <TableColumn fx:id="patientNom" prefWidth="287.0" text="Nom" />
+                        <TableColumn fx:id="patientPrenom" minWidth="0.0" prefWidth="139.0" text="Prénom" />
+                        <TableColumn fx:id="patientCIN" minWidth="0.0" prefWidth="238.0" text="CIN" />
+                      <TableColumn fx:id="patientSexe" minWidth="0.0" prefWidth="191.0" text="Sexe" />
+                        <TableColumn fx:id="patientTel" prefWidth="75.0" text="Tel" />
+                        <TableColumn fx:id="patientNaiss" prefWidth="75.0" text="Date de Naissance" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -212,97 +175,130 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
-                     <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#edit" prefHeight="46.0" prefWidth="195.0" text="Modifier" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="195.0" text="Supprimer" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Button>
-                     </children>
                   </GridPane>
-                  <GridPane styleClass="backgnd" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="30.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="523.0" minWidth="10.0" prefWidth="367.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="155.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="460.0" minWidth="10.0" prefWidth="371.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="9.0" prefWidth="26.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <TextField fx:id="newName" prefHeight="31.0" prefWidth="956.0" promptText="Nom" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="newCIN" prefHeight="31.0" prefWidth="956.0" promptText="CIN" GridPane.columnIndex="3">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="newTel" prefHeight="31.0" prefWidth="956.0" promptText="Tel" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="newLogin" prefHeight="31.0" prefWidth="956.0" promptText="New user's Login" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <PasswordField fx:id="newPass" promptText="New user's Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </PasswordField>
-                        <PasswordField fx:id="newPass2" promptText="Confirm New user's Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </PasswordField>
-                        <PasswordField fx:id="adminPass" promptText="Admin Password" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </PasswordField>
-                     </children>
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </GridPane>
-                  <GridPane GridPane.columnIndex="2" GridPane.rowIndex="3">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1080.0" minWidth="10.0" prefWidth="878.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="425.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="195.0" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Button>
-                        <Label fx:id="addMsg" alignment="CENTER" contentDisplay="CENTER" prefHeight="82.0" prefWidth="396.0" textAlignment="CENTER" textFill="#ebcd26" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Label>
+                        <GridPane styleClass="backgnd" stylesheets="@application.css">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="523.0" minWidth="10.0" prefWidth="367.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="155.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="460.0" minWidth="10.0" prefWidth="371.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="9.0" prefWidth="26.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="newNom" prefHeight="31.0" prefWidth="956.0" promptText="Nom *" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="newTel" prefHeight="31.0" prefWidth="956.0" promptText="Tel *" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="newPrenom" prefHeight="31.0" prefWidth="956.0" promptText="Prénom *" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <PasswordField fx:id="adminPass" promptText="Admin Password *" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
+                              <DatePicker fx:id="newDateNaiss" prefHeight="39.0" prefWidth="393.0" promptText="Date de Naissance *" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <RadioButton fx:id="homme" mnemonicParsing="false" text="Homme *">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="Gr2" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="femme" mnemonicParsing="false" text="Femme *" toggleGroup="$Gr2" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </GridPane>
+                              <TextField fx:id="newCIN" prefHeight="31.0" prefWidth="956.0" promptText="CIN *" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="DateDebut" prefHeight="38.0" prefWidth="358.0" promptText="Date de debut" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="Categorie" prefHeight="41.0" prefWidth="352.0" promptText="Categorie de la première intervention" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" onAction="#addCat" text="Ajouter une nouvelle categorie" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                        <GridPane prefWidth="267.0" GridPane.columnIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="195.0" text="Ajouter" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="addMsg" alignment="CENTER" contentDisplay="CENTER" prefHeight="82.0" prefWidth="396.0" textAlignment="CENTER" textFill="#ebcd26" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#edit" prefHeight="46.0" prefWidth="195.0" text="Modifier" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="195.0" text="Supprimer" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
                      </children>
                   </GridPane>
                </children>

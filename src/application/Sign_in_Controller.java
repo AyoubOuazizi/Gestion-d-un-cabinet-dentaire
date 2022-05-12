@@ -95,63 +95,65 @@ public class Sign_in_Controller {
 		if (login.getText().isBlank() || passwd.getText().isBlank()){
 			loginMsg.setText("Tous les champs sont obligatoires");
 		}
-		else if (button_dentiste.isSelected()) {
-			
-			// Se connecter avec le compte par défaut
-			File dentFile = new File("dentistes"); 
-			if (dentFile.length() == 0) {
-				if (login.getText().equals("admin") && passwd.getText().equals("admin")) {
-					main.changeScene("New_admin.fxml");
-					successful = true;
+		else { 
+			if (button_dentiste.isSelected()) {
+				
+				// Se connecter avec le compte par défaut
+				File dentFile = new File("dentistes"); 
+				if (dentFile.length() == 0) {
+					if (login.getText().equals("admin") && passwd.getText().equals("admin")) {
+						main.changeScene("New_admin.fxml");
+						successful = true;
+					}
+				}
+				
+				// Verifier login & passwd pour le Dentiste
+				else {
+					try{
+						FileInputStream fis = new FileInputStream("dentistes");
+						while (fis.available() > 0) {
+							ObjectInputStream ois = new ObjectInputStream(fis);
+							utilisateur = (Dentiste) ois.readObject();
+							if (utilisateur.getLogin().equals(login.getText()) && utilisateur.getPasswd().equals(passwd.getText())) {
+								isD = true;
+								successful = true;
+								main.changeScene("HomeDentiste.fxml");
+								break;
+							}
+						}
+						fis.close();
+					} catch (IOException | ClassNotFoundException ex) {
+						ex.printStackTrace();
+					}
+				}
+				if (!successful) {
+					loginMsg.setText("Le login ou le password n'est pas valide");
 				}
 			}
-			
-			// Verifier login & passwd pour le Dentiste
 			else {
-				try{
-					FileInputStream fis = new FileInputStream("dentistes");
-					while (fis.available() > 0) {
-						ObjectInputStream ois = new ObjectInputStream(fis);
-						utilisateur = (Dentiste) ois.readObject();
-						if (utilisateur.getLogin().equals(login.getText()) && utilisateur.getPasswd().equals(passwd.getText())) {
-							isD = true;
-							successful = true;
-							main.changeScene("HomeDentiste.fxml");
-							break;
+				// Verifier login & passwd pour l'Assistant
+				File assistantFile = new File("assistants"); 
+				if (assistantFile.length() != 0) {
+					try{
+						FileInputStream fis = new FileInputStream(assistantFile);
+						while (fis.available() > 0) {
+							ObjectInputStream ois = new ObjectInputStream(fis);
+							utilisateur = (Assistant) ois.readObject();
+							if (utilisateur.getLogin().equals(login.getText()) && utilisateur.getPasswd().equals(passwd.getText())) {
+								isD = false;
+								successful = true;
+								main.changeScene("HomeAssistant.fxml");
+								break;
+							}
 						}
+						fis.close();
+					} catch (IOException | ClassNotFoundException ex) {
+						ex.printStackTrace();
 					}
-					fis.close();
-				} catch (IOException | ClassNotFoundException ex) {
-					ex.printStackTrace();
 				}
-			}
-			if (!successful) {
-				loginMsg.setText("Le login ou le password n'est pas valide");
-			}
-		}
-		else {
-			// Verifier login & passwd pour l'Assistant
-			File assistantFile = new File("assistants"); 
-			if (assistantFile.length() != 0) {
-				try{
-					FileInputStream fis = new FileInputStream(assistantFile);
-					while (fis.available() > 0) {
-						ObjectInputStream ois = new ObjectInputStream(fis);
-						utilisateur = (Assistant) ois.readObject();
-						if (utilisateur.getLogin().equals(login.getText()) && utilisateur.getPasswd().equals(passwd.getText())) {
-							isD = false;
-							successful = true;
-							main.changeScene("HomeAssistant.fxml");
-							break;
-						}
-					}
-					fis.close();
-				} catch (IOException | ClassNotFoundException ex) {
-					ex.printStackTrace();
+				if (assistantFile.length() == 0 || !successful) {
+					loginMsg.setText("Le login ou le password n'est pas valide");
 				}
-			}
-			if (assistantFile.length() == 0 || !successful) {
-				loginMsg.setText("Le login ou le password n'est pas valide");
 			}
 		}
 	}

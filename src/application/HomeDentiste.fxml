@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedAreaChart?>
-<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
@@ -123,16 +120,6 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </ToggleButton>
-                  <ToggleButton fx:id="radios_button" mnemonicParsing="false" onAction="#radios" prefHeight="106.0" prefWidth="423.0" text="Gérer les radios" toggleGroup="$Gr" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </ToggleButton>
-                  <ToggleButton fx:id="actes_button" mnemonicParsing="false" onAction="#actes" prefHeight="106.0" prefWidth="423.0" text="Gérer les actes médicaux" toggleGroup="$Gr" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </ToggleButton>
                </children>
             </GridPane>
             <Circle fx:id="circle" fill="DODGERBLUE" radius="76.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -150,18 +137,11 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AreaChart GridPane.columnIndex="1">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </AreaChart>
-            <BarChart GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PieChart fx:id="sexe" title="Pourcentage de patients par sexe" />
+            <PieChart fx:id="soins" title="Pourcentages des soins terminés versus soins en cours" GridPane.columnIndex="1" />
+            <BarChart fx:id="patient" title="Evolution des patients dans le temps" GridPane.rowIndex="1">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -169,38 +149,6 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </BarChart>
-            <StackedAreaChart GridPane.rowIndex="2">
-              <xAxis>
-                <NumberAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </StackedAreaChart>
-            <LineChart GridPane.rowIndex="1">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-            <AreaChart>
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </AreaChart>
-            <StackedBarChart GridPane.columnIndex="1" GridPane.rowIndex="2">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </StackedBarChart>
          </children>
       </GridPane>
    </children>
