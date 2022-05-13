@@ -103,7 +103,7 @@ public class Info_ActeController extends MenuDentiste{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		EtatCombo.getItems().clear();
 		EtatCombo.getItems().addAll(
 	            "En Cours",
 	            "Terminé"

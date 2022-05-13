@@ -59,7 +59,7 @@ public class HomeDentisteController extends MenuDentiste{
 			String query1 = "SELECT COUNT(*) FROM patients WHERE Sexe ='F'";
 	    	ResultSet results1 = mystmt1.executeQuery(query1);
 	    	if (results1.next()) {
-	    		nbreHomme = results1.getInt("COUNT(*)");
+	    		nbreFemme = results1.getInt("COUNT(*)");
 	    	}
 			mystmt1.close();
 			results1.close();

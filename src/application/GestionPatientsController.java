@@ -291,7 +291,7 @@ public class GestionPatientsController extends MenuDentiste{
 	@FXML
 	public void add(ActionEvent event) {
 		Sign_in_Controller m = new Sign_in_Controller();
-		if (newNom.getText().isBlank() || newPrenom.getText().isBlank() || newCIN.getText().isBlank() || newTel.getText().isBlank() || newDateNaiss.getValue().equals(null) || sexeSelected() == ' ' || adminPass.getText().isBlank()) {
+		if (newNom.getText().isBlank() || newPrenom.getText().isBlank() || newCIN.getText().isBlank() || newTel.getText().isBlank() || newDateNaiss.getValue() == null || sexeSelected() == ' ' || adminPass.getText().isBlank()) {
 			addMsg.setText("Tous les champs (*) sont obligatoires");
 		}
 		else if (!adminPass.getText().equals(m.getUserPass())) {
@@ -316,13 +316,13 @@ public class GestionPatientsController extends MenuDentiste{
 				
 				if (Categorie.getValue() != null) {
 					if(DateDebut.getValue() == null) {
-						addMsg.setText("Il faut entrer une date debut");
+						addMsg.setText("L'acte medical n'a pas été créer");
 					}
 				}
 				
 				if (DateDebut.getValue() != null) {
 					if(Categorie.getValue() == null) {
-						addMsg.setText("Il faut choisir une categorie");
+						addMsg.setText("L'acte medical n'a pas été créer");
 					}
 					else {
 						Statement mystmt1 = con.createStatement();
